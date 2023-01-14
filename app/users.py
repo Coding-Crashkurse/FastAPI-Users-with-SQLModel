@@ -22,7 +22,7 @@ async def get_user_manager(user_db: SQLAlchemyUserDatabase = Depends(get_user_db
     yield UserManager(user_db)
 
 
-cookie_transport = CookieTransport(cookie_httponly=True)
+cookie_transport = CookieTransport(cookie_httponly=True, cookie_secure=True) # HTTPS Only
 #bearer_transport = BearerTransport(tokenUrl="auth/jwt/login")
 
 def get_jwt_strategy() -> JWTStrategy:
